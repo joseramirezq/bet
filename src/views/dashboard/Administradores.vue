@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center pb-0">
-                        <h6>Usuarios</h6>
+                        <h6>Administradores</h6>
                         <button class="btn btn-primary ml-auto" @click="nuevoItem">NUEVO</button>
                     </div>
 
@@ -18,7 +18,6 @@
                                     <th class="text-secondary opacity-7">ID</th>
                                     <th class="text-secondary opacity-7">DNI</th>
                                     <th class="text-secondary opacity-7">Nombres</th>
-                                    <th class="text-secondary opacity-7">Email</th>
                                     <th class="text-secondary opacity-7">Departamento</th>
                                     <th class="text-secondary opacity-7">Opciones</th>
                                 </tr>
@@ -29,7 +28,6 @@
                                     <td>{{ usuario.numero_documento }}</td>
                                     <td>{{ usuario.nombres }} {{ usuario.apellido_paterno }} {{ usuario.apellido_materno
                                         }}</td>
-                                    <td>{{ usuario.email }}</td>
                                     <td>{{ usuario.departamento }}</td>
                                     <td>
                                         <button @click="verUsuario(usuario)" class="badge badge-sm bg-gradient-success">
@@ -63,100 +61,93 @@
                     </div>
                     <div class="modal-body">
                         <form id="usuarioForm">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="tipoDocumento" class="form-label">Tipo de Documento</label>
-                                    <select class="form-control" id="tipoDocumento" v-model="form.tipo_documento">
-                                        <option value="DNI" selected>DNI</option>
-                                        <option value="CARNET DE EXTRANJERÍA">CARNET DE EXTRANJERÍA</option>
-                                    </select>
-                                    <div class="text-danger">{{ formErrors.tipo_documento }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="numeroDocumento" class="form-label">N° Documento</label>
-                                    <input type="text" class="form-control" id="numeroDocumento"
-                                        v-model="form.numero_documento">
-                                    <div class="text-danger">{{ formErrors.numero_documento }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" v-model="form.email">
-                                    <div class="text-danger">{{ formErrors.email }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="nombres" class="form-label">Nombres</label>
-                                    <input type="text" class="form-control" id="nombres" v-model="form.nombres">
-                                    <div class="text-danger">{{ formErrors.nombres }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="apellidoPaterno" class="form-label">Apellido Paterno</label>
-                                    <input type="text" class="form-control" id="apellidoPaterno"
-                                        v-model="form.apellido_paterno">
-                                    <div class="text-danger">{{ formErrors.apellido_paterno }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="apellidoMaterno" class="form-label">Apellido Materno</label>
-                                    <input type="text" class="form-control" id="apellidoMaterno"
-                                        v-model="form.apellido_materno">
-                                    <div class="text-danger">{{ formErrors.apellido_materno }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="telefono" class="form-label">Teléfono</label>
-                                    <input type="text" class="form-control" id="telefono" v-model="form.telefono">
-                                    <div class="text-danger">{{ formErrors.telefono }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-                                    <input type="date" class="form-control" id="fechaNacimiento"
-                                        v-model="form.fecha_nacimiento">
-                                    <div class="text-danger">{{ formErrors.fecha_nacimiento }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="genero" class="form-label">Género</label>
-
-                                    <select class="form-control" id="genero" v-model="form.genero">
-                                        <option value="masculino" selected>MASCULINO</option>
-                                        <option value="femenino">FEMENINO</option>
-                                    </select>
-                                    <div class="text-danger">{{ formErrors.genero }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="direccion" class="form-label">Dirección</label>
-                                    <input type="text" class="form-control" id="direccion" v-model="form.direccion">
-                                    <div class="text-danger">{{ formErrors.direccion }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="distrito" class="form-label">Distrito</label>
-                                    <input type="text" class="form-control" id="distrito" v-model="form.distrito">
-                                    <div class="text-danger">{{ formErrors.distrito }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="provincia" class="form-label">Provincia</label>
-                                    <input type="text" class="form-control" id="provincia" v-model="form.provincia">
-                                    <div class="text-danger">{{ formErrors.provincia }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="departamento" class="form-label">Departamento</label>
-                                    <input type="text" class="form-control" id="departamento"
-                                        v-model="form.departamento">
-                                    <div class="text-danger">{{ formErrors.departamento }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="pais" class="form-label">País</label>
-                                    <input type="text" class="form-control" id="pais" v-model="form.pais">
-                                    <div class="text-danger">{{ formErrors.pais }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" v-model="form.password">
-                                    <div class="text-danger">{{ formErrors.password }}</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="password_confirmation" class="form-label">Confirmar Password</label>
-                                    <input type="password" class="form-control" id="password_confirmation"
-                                        v-model="form.password_confirmation">
-                                    <div class="text-danger">{{ formErrors.password_confirmation }}</div>
-                                </div>
+                            <div class="mb-3">
+                                <label for="tipoDocumento" class="form-label">Tipo de Documento</label>
+                                <select class="form-control" id="tipoDocumento" v-model="form.tipo_documento">
+                                    <option value="DNI" selected>DNI</option>
+                                    <option value="CARNET DE EXTRANJERÍA">CARNET DE EXTRANJERÍA</option>
+                                </select>
+                                <div class="text-danger">{{ formErrors.tipo_documento }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="numeroDocumento" class="form-label">DNI</label>
+                                <input type="text" class="form-control" id="numeroDocumento"
+                                    v-model="form.numero_documento">
+                                <div class="text-danger">{{ formErrors.numero_documento }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" v-model="form.email">
+                                <div class="text-danger">{{ formErrors.email }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nombres" class="form-label">Nombres</label>
+                                <input type="text" class="form-control" id="nombres" v-model="form.nombres">
+                                <div class="text-danger">{{ formErrors.nombres }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="apellidoPaterno" class="form-label">Apellido Paterno</label>
+                                <input type="text" class="form-control" id="apellidoPaterno"
+                                    v-model="form.apellido_paterno">
+                                <div class="text-danger">{{ formErrors.apellido_paterno }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="apellidoMaterno" class="form-label">Apellido Materno</label>
+                                <input type="text" class="form-control" id="apellidoMaterno"
+                                    v-model="form.apellido_materno">
+                                <div class="text-danger">{{ formErrors.apellido_materno }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input type="text" class="form-control" id="telefono" v-model="form.telefono">
+                                <div class="text-danger">{{ formErrors.telefono }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" id="fechaNacimiento"
+                                    v-model="form.fecha_nacimiento">
+                                <div class="text-danger">{{ formErrors.fecha_nacimiento }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="genero" class="form-label">Género</label>
+                                <input type="text" class="form-control" id="genero" v-model="form.genero">
+                                <div class="text-danger">{{ formErrors.genero }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="direccion" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="direccion" v-model="form.direccion">
+                                <div class="text-danger">{{ formErrors.direccion }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="distrito" class="form-label">Distrito</label>
+                                <input type="text" class="form-control" id="distrito" v-model="form.distrito">
+                                <div class="text-danger">{{ formErrors.distrito }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="provincia" class="form-label">Provincia</label>
+                                <input type="text" class="form-control" id="provincia" v-model="form.provincia">
+                                <div class="text-danger">{{ formErrors.provincia }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="departamento" class="form-label">Departamento</label>
+                                <input type="text" class="form-control" id="departamento" v-model="form.departamento">
+                                <div class="text-danger">{{ formErrors.departamento }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pais" class="form-label">País</label>
+                                <input type="text" class="form-control" id="pais" v-model="form.pais">
+                                <div class="text-danger">{{ formErrors.pais }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" v-model="form.password">
+                                <div class="text-danger">{{ formErrors.password }}</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password_confirmation" class="form-label">Confirmar Password</label>
+                                <input type="password" class="form-control" id="password_confirmation"
+                                    v-model="form.password_confirmation">
+                                <div class="text-danger">{{ formErrors.password_confirmation }}</div>
                             </div>
                         </form>
                     </div>
@@ -196,16 +187,16 @@ export default {
                 apellido_materno: '',
                 telefono: '',
                 fecha_nacimiento: '',
-                genero: 'masculino',
+                genero: '',
                 direccion: '',
                 distrito: '',
                 provincia: '',
                 departamento: '',
-                pais: 'Perú',
+                pais: '',
                 password: '',
                 password_confirmation: '',
                 estado: 1,
-                suscripcion_activa: true,
+                suscripcion_activa:true,
             },
             modalTitle: '',
             currentUsuarioId: null
@@ -218,7 +209,7 @@ export default {
         async fetchUsuariosActivos() {
             try {
                 this.cargando = true;
-                const response = await UsuarioService.getUsuariosActivos();
+                const response = await UsuarioService.getUsuariosAdministradores();
                 this.usuarios = response.data.data;
                 this.$nextTick(() => {
                     if ($.fn.dataTable.isDataTable(this.$refs.itemtabla)) {
@@ -277,7 +268,7 @@ export default {
             this.modalTitle = 'Nuevo Usuario';
             this.currentUsuarioId = null;
             this.form = {
-                tipo_documento: 'DNI',
+                tipo_documento: '',
                 numero_documento: '',
                 email: '',
                 codigo: '-',
@@ -286,17 +277,17 @@ export default {
                 apellido_materno: '',
                 telefono: '',
                 fecha_nacimiento: '',
-                genero: 'masculino',
+                genero: '',
                 direccion: '',
                 distrito: '',
                 provincia: '',
                 departamento: '',
-                pais: 'Perú',
+                pais: '',
                 password: '',
-                rol: 'usuario',
+                rol: 'admin',
                 password_confirmation: '',
                 estado: 1,
-                suscripcion_activa: true
+                suscripcion_activa:true
             };
             this.showModal();
         },
@@ -320,10 +311,10 @@ export default {
                 departamento: usuario.departamento,
                 pais: usuario.pais,
                 password: '',
-                rol: 'usuario',
+                rol: 'admin',
                 password_confirmation: '',
                 estado: 1,
-                suscripcion_activa: true
+                suscripcion_activa:true
             };
             this.showModal();
         },

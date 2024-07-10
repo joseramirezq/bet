@@ -23,4 +23,7 @@ export default {
   getUsuariosActivos() {
     return apiClient.get('/usuarios/activos');
   },
+  getUsuariosAdministradores() {
+    return apiClient.get('/usuarios/admin');
+  },
 };

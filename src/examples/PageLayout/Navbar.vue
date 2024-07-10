@@ -56,7 +56,7 @@ defineProps({
                 aria-hidden="true"
                 :class="isBlur ? 'text-dark' : 'text-white'"
               ></i>
-              Dashboard
+              Dashboardd
             </router-link>
           </li>
           <li class="nav-item">

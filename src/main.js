@@ -9,9 +9,14 @@ import ArgonDashboard from "./argon-dashboard";
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+
+import vSelect from 'vue-select'
+import 'vue-select/dist/vue-select.css';
+
 const appInstance = createApp(App);
 appInstance.use(store);
 appInstance.use(router);
 appInstance.use(ArgonDashboard);
 appInstance.use(VueSweetalert2, { confirmButtonColor: '#F5A85B', cancelButtonColor: '#a5a5a5' });
+appInstance.component('v-select', vSelect); 
 appInstance.mount("#app");

@@ -38,7 +38,7 @@ defineProps({
           :class="isNavFixed ? 'text-dark' : 'text-white'"
           class="opacity-8"
           href="#"
-          >Pages</a
+          >Pagina</a
         >
       </li>
       <li
@@ -48,12 +48,6 @@ defineProps({
       >
         {{ currentPage }}
       </li>
-    </ol>
-    <h6
-      class="mb-0 font-weight-bolder"
-      :class="isNavFixed ? 'text-dark' : 'text-white'"
-    >
-      {{ currentDirectory }}
-    </h6>
+    </ol>   
   </nav>
 </template>
